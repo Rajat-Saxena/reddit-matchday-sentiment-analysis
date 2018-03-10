@@ -2,10 +2,8 @@ import praw             # Python Reddit API Wrapper
 import pandas as pd     # To handle data
 import numpy as np      # For number computing
 
-from IPython.display import display
 import matplotlib.pyplot as plt
 import matplotlib.dates as mdates
-import seaborn as sns
 import datetime
 
 from textblob import TextBlob
@@ -81,7 +79,7 @@ data['SA'] = np.array( [get_comment_polarity(comment) for comment in data['Text'
 print('Average sentiment: {0:.3f}'.format(np.mean(data['Sentiment'])))
 
 tscore = pd.Series(data = data['Sentiment'].values, index = data['Created'])
-tscore.sort_index(axis = 0).plot.area(figsize = (100,5), 
+tscore.sort_index(axis = 0).plot.area(figsize = (50,5), 
                           color = 'r', 
                           legend = True,
                           stacked = False,
