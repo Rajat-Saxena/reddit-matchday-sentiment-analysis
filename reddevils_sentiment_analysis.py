@@ -27,7 +27,7 @@ subreddit = reddit.subreddit(sub)
 #Spurs 7uckkc
 #Arsenal 7h3qsg
 #Liverpoo 83erhf
-submission_input = '83erhf' #'83fq8m'#input('Enter submission id: ')
+submission_input = '83erhf' #input('Enter submission id: ')
 submission = reddit.submission(id = submission_input)
 
 print('Title: {}, Ups: {}, Downs: {}'.format(
@@ -48,15 +48,7 @@ data['Score'] = np.array([comment.score for comment in submission.comments.list(
 
 #tlen = pd.Series(data = data['Length'].values, index = data['Created'])
 #tlen.plot(figsize = (15,5), color = 'b', legend = True, label = 'Length', kind = 'area')
-'''
-tlen = pd.Series(data = data['Length'].values, index = data['Created'])
-tlen.sort_index(axis = 0).plot(figsize = (15,5), 
-                          color = 'b', 
-                          legend = True, 
-                          label = 'Length', 
-                          stacked = False,
-                          kind = 'bar')
-'''
+
 def clean_comment(comment):
     '''
     Utility function to clean comment of links and special characters using regex
@@ -87,7 +79,7 @@ data['SA'] = np.array( [get_comment_polarity(comment) for comment in data['Text'
 
 #display(data.head(5))
 print('Average sentiment: {0:.3f}'.format(np.mean(data['Sentiment'])))
-#.resample('3T').mean()
+
 tscore = pd.Series(data = data['Sentiment'].values, index = data['Created'])
 tscore.sort_index(axis = 0).plot.area(figsize = (100,5), 
                           color = 'r', 
@@ -104,12 +96,6 @@ print("Percentage of positive comments: {0:.2f}%".format(len(pos_comments)*100/l
 print("Percentage of neutral comments: {0:.2f}%".format(len(neut_comments)*100/len(data['Text'])))
 print("Percentage of negative comments: {0:.2f}%".format(len(neg_comments)*100/len(data['Text'])))
 
-''' print('Positive comments: {}'.format((data['SA'] == 1).sum()))
-print('Neutral comments: {}'.format((data['SA'] == 0).sum()))
-print('Negative comments: {}'.format((data['SA'] == -1).sum())) '''
-
-goals = np.array([pd.to_datetime('14:52:00') ])
-
 plt.plot(data['Created'].values, [np.mean(data['Sentiment'])]*len(data['Created'].values), 
          linestyle = '--', label = 'Average Sentiment')
 
@@ -121,7 +107,6 @@ plt.xlabel('Timestamp')
 plt.ylabel('Sentiment')
 plt.xticks(rotation='vertical')
 plt.legend()
-#plt.figsize(50, 20)
 #plt.show()
 plt.savefig('PLOT-{}.png'.format(str(submission.title).replace(" ", "_")), dpi = 500)
 
