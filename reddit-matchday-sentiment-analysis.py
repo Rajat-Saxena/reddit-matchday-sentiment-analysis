@@ -102,6 +102,6 @@ plt.ylabel('Sentiment')
 plt.xticks(rotation='vertical')
 plt.xlim(kickoff_time, full_time)
 plt.legend()
-plt.savefig('PLOT-{}.png'.format(str(submission.title).replace(" ", "_")), dpi = 500)
+plt.savefig('images/PLOT-{}.png'.format(str(submission.title).replace(" ", "_")), dpi = 500)
 
 print('\n*** Script completed at {} *** \n'.format(datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")))
