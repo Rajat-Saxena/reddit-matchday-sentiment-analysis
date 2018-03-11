@@ -16,17 +16,16 @@ reddit = praw.Reddit(client_id = 'gGQNJa_LowQ8Zg',
                         client_secret = 'oAZBSWY8yxuC6EaRUivIdp9gaM0',
                         user_agent = 'match_thread_sa_agent')
 
-sub = 'reddevils' #input('Enter subreddit: ')
+sub = input('Enter subreddit: ')
 subreddit = reddit.subreddit(sub)
 
-#Palace 828ner
-#Chelsea 804id0
-#Sevilla 7z87nq
-#Spurs 7uckkc
-#Arsenal 7h3qsg
-#Liverpoo 83erhf
-submission_input = '83erhf' #input('Enter submission id: ')
+submission_input = input('Enter submission id: ')
 submission = reddit.submission(id = submission_input)
+
+kickoff_time = input('Enter kick-off time (yyyy-mm-dd hh:mm): ')
+kickoff_time = pd.to_datetime(kickoff_time)
+full_time = kickoff_time + datetime.timedelta(hours = 2, minutes = 5)
+kickoff_time = kickoff_time + datetime.timedelta(minutes = -5)
 
 print('Title: {}, Ups: {}, Downs: {}'.format(
                                             submission.title,
@@ -79,8 +78,8 @@ data['SA'] = np.array( [get_comment_polarity(comment) for comment in data['Text'
 print('Average sentiment: {0:.3f}'.format(np.mean(data['Sentiment'])))
 
 tscore = pd.Series(data = data['Sentiment'].values, index = data['Created'])
-tscore.sort_index(axis = 0).plot.area(figsize = (50,5), 
-                          color = 'r', 
+tscore.sort_index(axis = 0).plot(figsize = (50,5),
+                          color = 'r',
                           legend = True,
                           stacked = False,
                           label = 'Comment Sentiment')
@@ -94,7 +93,7 @@ print("Percentage of positive comments: {0:.2f}%".format(len(pos_comments)*100/l
 print("Percentage of neutral comments: {0:.2f}%".format(len(neut_comments)*100/len(data['Text'])))
 print("Percentage of negative comments: {0:.2f}%".format(len(neg_comments)*100/len(data['Text'])))
 
-plt.plot(data['Created'].values, [np.mean(data['Sentiment'])]*len(data['Created'].values), 
+plt.plot(data['Created'].values, [np.mean(data['Sentiment'])]*len(data['Created'].values),
          linestyle = '--', label = 'Average Sentiment')
 
 xlocator = mdates.MinuteLocator(byminute=[0,10,20,30,40,50], interval = 1)
@@ -104,6 +103,7 @@ plt.gca().xaxis.set_minor_locator(mdates.MinuteLocator())
 plt.xlabel('Timestamp')
 plt.ylabel('Sentiment')
 plt.xticks(rotation='vertical')
+plt.xlim(kickoff_time, full_time)
 plt.legend()
 #plt.show()
 plt.savefig('PLOT-{}.png'.format(str(submission.title).replace(" ", "_")), dpi = 500)
