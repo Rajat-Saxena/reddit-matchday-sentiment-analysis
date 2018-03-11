@@ -32,14 +32,13 @@ There are 3,515 user comments in the [match thread](https://www.reddit.com/r/red
 * Percentage of negative comments: 23.28%
 * Plot:  
 ![Manchester United vs Liverpool](/images/PLOT-[Match_Thread]_Manchester_Utd_vs_Liverpool.png)
-Format: ![Manchester United vs Liverpool]()
 * Match Result: Manchester United 2-1 Liverpool
 * Clearly, the sentiment is positive, especially towards and after the end of the game.
 
 
 Let me now compare with another game, **Tottenham Hotspur vs Manchester United**. The match was played on January 31, 2018 at 20:00 UTC. Christian Eriksen scored 30 seconds into the match! Phil Jones scored an own goal in the 28th minute.
 
-There are 4,313 user comments in the [match thread](https://www.reddit.com/r/reddevils/comments/83erhf/match_thread_manchester_utd_vs_liverpool/) on [/r/RedDevils](https://www.reddit.com/r/reddevils/). Here's the analysis:
+There are 4,313 user comments in the [match thread](https://www.reddit.com/r/reddevils/comments/7uckkc/match_thread_tottenham_vs_manchester_utd/) on [/r/RedDevils](https://www.reddit.com/r/reddevils/). Here's the analysis:
 
 * Average sentiment of comments: -0.020
 * Percentage of positive comments: 33.00%
@@ -47,6 +46,5 @@ There are 4,313 user comments in the [match thread](https://www.reddit.com/r/red
 * Percentage of negative comments: 35.91%
 * Plot:  
 ![Tottenham Hotspur vs Manchester United](/images/PLOT-[Match_Thread]_Tottenham_vs_Manchester_Utd.png)
-Format: ![Tottenham Hotspur vs Manchester United]()
 * Match Result: Tottenham Hotspur 2-0 Manchester United
-* As is evident from the high concentration of negative sentiments, it was a game to forget. 
+* As is evident from the high concentration of negative sentiments, it was a game to forget.
