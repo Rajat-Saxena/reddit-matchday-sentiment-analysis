@@ -11,8 +11,8 @@ import re                           # Regular expression used to clean comments
 
 print('\n*** Script started at {} *** \n'.format(datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")))
 
-reddit = praw.Reddit(client_id = 'gGQNJa_LowQ8Zg',
-                        client_secret = 'oAZBSWY8yxuC6EaRUivIdp9gaM0',
+reddit = praw.Reddit(client_id = '##########',
+                        client_secret = '###########',
                         user_agent = 'match_thread_sa_agent')
 
 sub = input('Enter subreddit: ')
