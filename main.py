@@ -58,7 +58,7 @@ df = pd.DataFrame()
 print(f"{get_time()} Reached checkpoint 0: Initialization done. Starting comments explosion.")
 
 # Loop over all comments in the submission
-submission.comments.replace_more(limit=1)
+submission.comments.replace_more(limit=None)
 print(f"{get_time()} Reached checkpoint 1: All nested comments have been exploded.")
 
 for comment in submission.comments.list():
