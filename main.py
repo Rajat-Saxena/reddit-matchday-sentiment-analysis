@@ -46,8 +46,8 @@ reddit = praw.Reddit(
 
 # Set up values for submission
 subreddit = "reddevils"
-submission_id = "nlobbq" # "nj97ic" # input("Enter submission id: ")
-kickoff_time = "2021-05-26 19:00:00" # input("Enter kick-off time (yyyy-mm-dd hh:mm) UTC: ")
+submission_id = "7uckkc" # "nlobbq" # "nj97ic" # input("Enter submission id: ")
+kickoff_time = "2018-01-31 20:00:00" # input("Enter kick-off time (yyyy-mm-dd hh:mm) UTC: ")
 
 # Get instance of submission
 submission = reddit.submission(id=submission_id)
@@ -82,7 +82,16 @@ df = df[df['minutes_elapsed'] < pd.Timedelta(180,'m')]
 df["sentiment"] = df["comment_text"].apply(lambda x: get_comment_sentiment(x))
 # Calculate sentiment polarity of every comment and save into a new column
 df["sentiment_polarity"] = [1 if x > 0 else (-1 if x < 0 else 0) for x in df["sentiment"]]
-print(f"{get_time()} Reached checkpoint 3: Calculated sentiment of every comment.")
+
+# Store some metadata
+num_total_comments = df.shape[0]
+num_positive_comments = df[df["sentiment"] > 0].shape[0]
+perc_positive_comments = round(((num_positive_comments / num_total_comments) * 100), 2)
+num_negative_comments = df[df["sentiment"] < 0].shape[0]
+perc_negative_comments = round(((num_negative_comments / num_total_comments) * 100), 2)
+average_sentiment = df["sentiment"].mean()
+
+print(f"{get_time()} Reached checkpoint 3: Calculated sentiment of every comment and captured metadata.")
 
 df.to_csv("data.csv")
 print(f"{get_time()} Reached checkpoint 4: Saved data to a local file.")
@@ -102,10 +111,12 @@ plt.gca().xaxis.set_major_locator(xlocator)
 plt.gca().xaxis.set_minor_locator(mdates.MinuteLocator())
 plt.xlabel("Timestamp")
 plt.ylabel("Sentiment")
-plt.xticks(rotation="vertical")
+# plt.xticks(rotation="vertical")
 plt.legend()
 
 plot_name = (str(submission.title)).replace("Match Thread", "").replace("[", "").replace("]", "").replace(" ", "")[0:30]
 plt.savefig(f"images/PLOT-{plot_name}.png", dpi = 500)
 
 print(f"{get_time()} Reached checkpoint 6: Graph plotted and saved to disk.")
+
+print(f"{get_time()} Total comments: {num_total_comments}; positive comments: {num_positive_comments} ({perc_positive_comments}%); negative comments: {num_negative_comments} ({perc_negative_comments}%)")
