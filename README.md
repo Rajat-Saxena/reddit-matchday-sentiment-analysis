@@ -22,29 +22,38 @@ By performing a sentiment analysis, I am hoping to identify a correlation betwee
 **Answer:** The script returns *average sentiment of comments*, *percentage of positive, neutral and negative comments*, and a *line graph plotting sentiment over the course of the match*.
 
 ## Analysis
-So I will start by analyzing the biggest game in English football, the North-West derby - **Manchester United vs Liverpool**. The match was played on March 10, 2018 at 12:30 UTC. Manchester United led in the first half through two goals by Marcus Rashford in the 14th and 24th minute. Liverpool pulled one back via an Eric Bailly own goal after 66 minutes.
+We will look at 2 games to demonstrate this application.
 
-There are 3,515 user comments in the [match thread](https://www.reddit.com/r/reddevils/comments/83erhf/match_thread_manchester_utd_vs_liverpool/) on [/r/RedDevils](https://www.reddit.com/r/reddevils/). Here's the analysis:
+First, the Manchester derby. Manchester United traveled to the Etihad Stadium to face Manchester City on March 7, 2021. **Manchester United won 2-0 on the night** with goals from Bruno Fernandes and Luke Shaw. 
 
-* Average sentiment: 0.042
-* Percentage of positive comments: 34.52%
-* Percentage of neutral comments: 42.20%
-* Percentage of negative comments: 23.28%
+There are 5,013 user comments in the match thread on [/r/RedDevils](https://www.reddit.com/r/reddevils/). Here's the analysis:
+
+* Percentage of positive comments: 34.27%
+* Percentage of negative comments: 24.90%
 * Plot:  
-![Manchester United vs Liverpool](/images/PLOT-[Match_Thread]_Manchester_Utd_vs_Liverpool.png)
-* Match Result: Manchester United 2-1 Liverpool
-* Clearly, the sentiment is positive, especially towards and after the end of the game.
+![Manchester Ciry vs Manchester United](images/PLOT-ManchesterCityvsManchesterUnited.png)
+* Match Result: Manchester City 0-2 Manchester United
+* This match was one of the good ones from the season.
 
 
-Let me now compare with another game, **Tottenham Hotspur vs Manchester United**. The match was played on January 31, 2018 at 20:00 UTC. Christian Eriksen scored 30 seconds into the match! Phil Jones scored an own goal in the 28th minute.
+Let me now compare with another game, the Europa League final between Manchester United and Villareal. The match was played on May 26, 2021. Manchester United lost the match on penalties after both teams were tied in normal and extra time.
 
-There are 4,313 user comments in the [match thread](https://www.reddit.com/r/reddevils/comments/7uckkc/match_thread_tottenham_vs_manchester_utd/) on [/r/RedDevils](https://www.reddit.com/r/reddevils/). Here's the analysis:
+There are a whopping 15,571 user comments in the match thread on [/r/RedDevils](https://www.reddit.com/r/reddevils/). Here's the analysis:
 
-* Average sentiment of comments: -0.020
-* Percentage of positive comments: 33.00%
-* Percentage of neutral comments: 31.10%
-* Percentage of negative comments: 35.91%
+* Percentage of positive comments: 26.74%
+* Percentage of negative comments: 31.43%
 * Plot:  
-![Tottenham Hotspur vs Manchester United](/images/PLOT-[Match_Thread]_Tottenham_vs_Manchester_Utd.png)
-* Match Result: Tottenham Hotspur 2-0 Manchester United
-* As is evident from the high concentration of negative sentiments, it was a game to forget.
+![Villareal vs Manchester United](images/PLOT-VillarrealvsManchesterUnited.png)
+* Match Result: Villareal 1-1 Manchester United (Villareal won 11-10 on penalties)
+* Clearly, it was a game to forget.
+
+### Some other plots
+
+* Manchester United 2-1 Liverpool (2018)
+![Manchester United vs Liverpool](images/PLOT-ManchesterUtdvsLiverpool.png)
+
+* Tottenham Hotspurs 2-0 Manchester United (2018)
+![Tottenham Manchester United](images/PLOT-TottenhamvsManchesterUtd.png)
+
+* Wolves 1-2 Manchester United (2021)
+![Wolves vs Manchester United](images/PLOT-WolvesvsManchesterUnited.png)

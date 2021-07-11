@@ -46,8 +46,8 @@ reddit = praw.Reddit(
 
 # Set up values for submission
 subreddit = "reddevils"
-submission_id = "7uckkc" # "nlobbq" # "nj97ic" # input("Enter submission id: ")
-kickoff_time = "2018-01-31 20:00:00" # input("Enter kick-off time (yyyy-mm-dd hh:mm) UTC: ")
+submission_id = "nlobbq" # "7uckkc" # "nlobbq" # "nj97ic" # input("Enter submission id: ")
+kickoff_time = "2021-05-26 20:00:00" # input("Enter kick-off time (yyyy-mm-dd hh:mm) UTC: ")
 
 # Get instance of submission
 submission = reddit.submission(id=submission_id)
@@ -56,6 +56,7 @@ submission = reddit.submission(id=submission_id)
 df = pd.DataFrame()
 
 print(f"{get_time()} Reached checkpoint 0: Initialization done. Starting comments explosion.")
+print(f"{get_time()} Title: {submission.title}")
 
 # Loop over all comments in the submission
 submission.comments.replace_more(limit=None)
